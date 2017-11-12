@@ -21,12 +21,12 @@ def read_file(name):
         line = file.readline()
     file.close()
 
-create_file('data.txt')
+'''create_file('data.txt')
 write_file('data.txt')
-read_file('data.txt')
+read_file('data.txt')'''
 
 #work with XML
-file_xml = parse('data.xml')
+'''file_xml = parse('data.xml')
 for item in file_xml.findall('nombre'):
     print(item.text)
 
@@ -35,21 +35,22 @@ with open('data.json') as d:
     data = json.load(d)
 
 print(data)
-print(data['country'][0]['country_1'])
+print(data['country'][0]['country_1'])'''
 
 #work with CSV
 file_csv = open('data.csv', 'w')
-csv_data = csv.writer(file_csv) #write in the file
+csv_data = csv.writer(file_csv, lineterminator='\n') #write in the file
 contacts = [['Xiomara', 435678922] ,['Juliet', 945687344] ,['Sandor', 354356789]]
 print(contacts)
 for item in contacts:
     csv_data.writerow(item)
+
 file_csv.close()
 
 doc_csv = open('data.csv', 'r')
 document = csv.reader(doc_csv)
 ''' print(document)
     print(list(document)) --->debugger'''
-for(name , number) in document:
-    print(name, number)
+for row in document:
+    print(row[0], row[1])
 doc_csv.close()
